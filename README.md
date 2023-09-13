@@ -1,5 +1,6 @@
 ta_parser.py:  TrustedAdvisor parser.
-Tim Clevenger (https://github.com/TClevenger) 2023
+
+usage: python3 ta_parser.py FILE
 
 ta_parser.py is a quick and dirty script that parses AWS TrustedAdvisor
 reports (Excel format) and removes all sheets where the status is "ok"
