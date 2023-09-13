@@ -37,7 +37,8 @@ if not changes:
 for x in delete_sheets:
   print("Deleting sheet " + str(x))
   workbook.remove_sheet(x)
-  workbook.save(filename = wbname)
-  print("File has been updated.")
+
+workbook.save(filename = wbname)
+print("File has been updated.")
 
 sys.exit(0)
