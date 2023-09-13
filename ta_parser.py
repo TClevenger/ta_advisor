@@ -20,6 +20,7 @@ if len(sys.argv) == 1:
 delete_sheets = []
 wbname = sys.argv[1]
 workbook = load_workbook(wbname)
+changes = False
 
 for x in workbook.sheetnames:
   sheet = workbook[x]
@@ -27,11 +28,16 @@ for x in workbook.sheetnames:
     delete_sheets.append(sheet)
   else:
     print("Sheet name: " + str(sheet.title) + " will be kept.")
+    changes = True
+
+if not changes:
+  print("No warnings or errors found in report; no changes made to original file.")
+  sys.exit(0)
 
 for x in delete_sheets:
   print("Deleting sheet " + str(x))
   workbook.remove_sheet(x)
-
-workbook.save(filename = wbname)
+  workbook.save(filename = wbname)
+  print("File has been updated.")
 
 sys.exit(0)
